@@ -19,7 +19,7 @@ if ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (isset($_SERVER['
 }
 
 //ip,port默认是本机
-$ip                 = '39.98.215.213';//$_SERVER['SERVER_ADDR']
+$ip                 = '127.0.0.1';//$_SERVER['SERVER_ADDR']
 $port               = 80;////$_SERVER['SERVER_PORT']
 $name               = 'win1';//自定义
 $id                 = 'win1-7'.$port;//自定义
