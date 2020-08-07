@@ -29,7 +29,7 @@ class Agent
         if (isset($options["host"])) {
             $this->options["host"] = $options["host"];
         }
-        $sf =  new ConsulClient(['host' => '47.92.48.222:18500']);
+        $sf =  new ConsulClient(['host' => $this->options["host"]]);
         $this->apiClient = $sf->agent;
     }
 
@@ -69,7 +69,9 @@ class Agent
         );
 
         $res = $this->apiClient->put('service','register', $data);
-
+        if ($res === NULL) {
+            return array('code' => 103, 'msg' => '与Consul通信时出错', 'data' => (object)array());
+        }
         return array('code' => 0, 'msg' => 'ok', 'data' => $res);
     }
 

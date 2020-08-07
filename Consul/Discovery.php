@@ -31,7 +31,7 @@ class Discovery
         if (isset($options["host"])) {
             $this->options["host"] = $options["host"];
         }
-        $sf =  new ConsulClient(['host' => '47.92.48.222:18500']);
+        $sf =  new ConsulClient(['host' => $this->options["host"]]);
         $this->apiClient = $sf->health;
 
         //TODO 线上的话，修改为框架内调用方式
